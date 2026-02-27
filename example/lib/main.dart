@@ -16,7 +16,10 @@ class ExampleApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Hybrid Stripe Payments Example',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo), useMaterial3: true),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        useMaterial3: true,
+      ),
       home: const PaymentScreen(),
     );
   }
@@ -73,10 +76,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
       final result = await _stripePayments.showPaymentSheet(
         keys: HybridStripePaymentsKeys(
           customerId: 'cus_U3XLgfo7V44mGV',
-          ephemeralKey: 'ek_test_YWNjdF8xUU95bUcyS09SWlhiOVlDLG9Gak9hMnhEMTA5a0lBNmVoSGxLb25RdlNFOXdxMlk_00ifIkIBnj',
+          ephemeralKey:
+              'ek_test_YWNjdF8xUU95bUcyS09SWlhiOVlDLG9Gak9hMnhEMTA5a0lBNmVoSGxLb25RdlNFOXdxMlk_00ifIkIBnj',
           type: HybridStripePaymentsKeyType.payment,
           intentId: 'pi_3T5QGi2KORZXb9YC14o1kzIf',
-          clientSecret: 'pi_3T5QGi2KORZXb9YC14o1kzIf_secret_AgRWBrzfqUCxaVmDWHL5a3S2o',
+          clientSecret:
+              'pi_3T5QGi2KORZXb9YC14o1kzIf_secret_AgRWBrzfqUCxaVmDWHL5a3S2o',
         ),
         buttonLabel: 'Pay \$9.99',
       );
@@ -140,10 +145,16 @@ class _PaymentScreenState extends State<PaymentScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
-              child: Padding(padding: const EdgeInsets.all(16), child: Text('Status: $_status')),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Text('Status: $_status'),
+              ),
             ),
             const SizedBox(height: 24),
-            ElevatedButton(onPressed: _loading ? null : _initialize, child: const Text('Initialize Stripe')),
+            ElevatedButton(
+              onPressed: _loading ? null : _initialize,
+              child: const Text('Initialize Stripe'),
+            ),
             const SizedBox(height: 12),
             ElevatedButton(
               onPressed: _loading || !_initialized ? null : _showPaymentSheet,
@@ -154,7 +165,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
               onPressed: _loading || !_initialized ? null : _showSetupSheet,
               child: const Text('Show Setup Sheet'),
             ),
-            if (_loading) ...[const SizedBox(height: 24), const Center(child: CircularProgressIndicator())],
+            if (_loading) ...[
+              const SizedBox(height: 24),
+              const Center(child: CircularProgressIndicator()),
+            ],
           ],
         ),
       ),
