@@ -27,3 +27,7 @@ flutter:
         pluginClass: HybridStripePaymentsPlugin
       ios:
         pluginClass: HybridStripePaymentsPlugin
+
+topics:
+  - payments
+  - stripe
